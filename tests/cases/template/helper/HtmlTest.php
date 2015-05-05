@@ -450,22 +450,22 @@ class HtmlTest extends \lithium\test\Unit {
 		$this->assertEqual($expected, $result['options']['scope']);
 	}
 	
-	public function testBlock_Start(){
+	public function testBlockStart(){
 	   $results = $this->html->block_start(array('id' => 'Test'));
 	   $this->assertTags($results, array('div' => array('id' => 'Test')));
 	}
 
-	public function testBlock_End(){
+	public function testBlockEnd(){
 	   $results = $this->html->block_end();
 	   $this->assertEqual($results, '</div>');
 	}
 
-	public function testTag_Start(){
+	public function testTagStart(){
 	   $results = $this->html->tag_start('p',array('id' => 'Test'));
 	   $this->assertTags($results, array('p' => array('id' => 'Test')));
 	}
 
-	public function testTag_End(){
+	public function testTagEnd(){
 	   $results = $this->html->tag_end('p');
 	   $this->assertEqual($results, '</p>');
 	}
