@@ -304,7 +304,7 @@ class Html extends \lithium\template\Helper {
 	 * @return string Returns a formatted `<img />` tag.
 	 * @filter This method can be filtered.
 	 */
-	public function block_start(array $options = array()){
+	public function blockStart(array $options = array()){
 	   $defaults = array();
 	   $options += $defaults;
 	   $params = compact('options');
@@ -322,7 +322,7 @@ class Html extends \lithium\template\Helper {
 	 * @return string Returns a formatted `<img />` tag.
 	 * @filter This method can be filtered.
 	 */
-	public function block_end(){
+	public function blockEnd(){
 	   $params = array();
 	   $method = __METHOD__;
 	   return $this->_filter($method,$params, function($self, $params, $chain) use ($method){
@@ -338,7 +338,7 @@ class Html extends \lithium\template\Helper {
 	 * @return string Returns a formatted `<img />` tag.
 	 * @filter This method can be filtered.
 	 */
-	public function tag_start($name,array $options = array()){
+	public function tagStart($name,array $options = array()){
 	   $defaults = array();
 	   $options += $defaults;
 	   $params = compact('name','options');
@@ -356,7 +356,7 @@ class Html extends \lithium\template\Helper {
 	 * @return string Returns a formatted `<img />` tag.
 	 * @filter This method can be filtered.
 	 */
-	public function tag_end($name){
+	public function tagEnd($name){
 	   $params = compact('name');
 	   $method = __METHOD__;
 	   return $this->_filter($method,$params, function($self, $params, $chain) use ($method, $name){
