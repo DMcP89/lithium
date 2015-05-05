@@ -295,6 +295,74 @@ class Html extends \lithium\template\Helper {
 			return $self->invokeMethod('_render', array($method, 'image', $params));
 		});
 	}
+	
+	/**
+	 * Creates a formatted `<div>` element.
+	 *
+	 *
+	 * @param array $options Array of HTML attributes.
+	 * @return string Returns a formatted `<img />` tag.
+	 * @filter This method can be filtered.
+	 */
+	public function block_start(array $options = array()){
+	   $defaults = array();
+	   $options += $defaults;
+	   $params = compact('options');
+	   $method = __METHOD__;
+	   return $this->_filter($method,$params, function($self, $params, $chain) use ($method){
+		  return $self->invokeMethod('_render', array($method, 'block-start',$params));
+	   });
+	}
+
+	/**
+	 * Creates a formatted `<div>` element.
+	 *
+	 *
+	 * @param array $options Array of HTML attributes.
+	 * @return string Returns a formatted `<img />` tag.
+	 * @filter This method can be filtered.
+	 */
+	public function block_end(){
+	   $params = array();
+	   $method = __METHOD__;
+	   return $this->_filter($method,$params, function($self, $params, $chain) use ($method){
+		  return $self->invokeMethod('_render', array($method, 'block-end',$params));
+	   });
+	}
+
+	/**
+	 * Creates a formatted html start tag of type $name.
+	 *
+	 *
+	 * @param array $options Array of HTML attributes.
+	 * @return string Returns a formatted `<img />` tag.
+	 * @filter This method can be filtered.
+	 */
+	public function tag_start($name,array $options = array()){
+	   $defaults = array();
+	   $options += $defaults;
+	   $params = compact('name','options');
+	   $method = __METHOD__;
+	   return $this->_filter($method,$params, function($self, $params, $chain) use ($method, $name){
+		  return $self->invokeMethod('_render', array($method, 'tag-start',$params));
+	   });
+	}
+
+	/**
+	 * Creates a formatted html  end tag of type $name.
+	 *
+	 *
+	 * @param array $options Array of HTML attributes.
+	 * @return string Returns a formatted `<img />` tag.
+	 * @filter This method can be filtered.
+	 */
+	public function tag_end($name){
+	   $params = compact('name');
+	   $method = __METHOD__;
+	   return $this->_filter($method,$params, function($self, $params, $chain) use ($method, $name){
+		  return $self->invokeMethod('_render', array($method, 'tag-end',$params));
+	   });
+	}
 
 	/**
 	 * Creates a link to an external resource.
